@@ -4,26 +4,8 @@
 
 {% block body %}
 <div class="container">
-    <div class="list-group text-center">
-        hi
-{#        <div class="text-center my-3"><h3>Nos 10 meilleurs restaurants</h3></div>#}
-{#        <div class="card-deck row row-cols-md-3">#}
-{#            {% for restaurant in restaurants %}#}
-{#                <div class="col mb-4">#}
-{#                    <div class="card">#}
-{#                        <img src="{{ restaurant.restaurantPictures.first ? restaurant.restaurantPictures.first.imageUrl : ''}}" class="card-img-top" alt="...">#}
-{#                        <div class="card-body">#}
-{#                            <h5 class="card-title">#}
-{#                                <a href="{{ path('app_restaurant_show', {'id': restaurant.id}) }}">#}
-{#                                    {{ restaurant.name }} - {{ restaurant.averageRating ? restaurant.averageRating ~ '/5' : 'non noté' }}#}
-{#                                </a>#}
-{#                            </h5>#}
-{#                            <p class="card-text">{{ restaurant.description }}</p>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            {% endfor %}#}
-{#        </div>#}
-    </div>
+    <h1 class="mt-3 text-center">
+        Bienvenue
+    </h1>
 </div>
 {% endblock %}

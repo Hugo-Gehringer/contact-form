@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class=" navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link fa-solid fa-house d-inline-block" href="{{ path('app_main') }}"></a>
+            </li>
+            {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                <li class="nav-item">
+                    <a class="nav-link -danger"> Bonjour {{ app.user.lastname }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path('app_logout')}}">Déconnexion</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path('app_register')}}"> Créer un compte</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path('app_login')}}">Connexion</a>
+                </li>
+            {% endif %}
+        </ul>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link">Contactez-nous</a>
+            </li>
+        </ul>
+    </div>
+</nav>

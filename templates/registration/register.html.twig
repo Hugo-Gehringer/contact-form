@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {{ form_start(registrationForm) }}
+        <div class="container">
+            <h1>Créer un compte</h1>
+            <form class="">
+                <div class="row mt-3">
+                    <div class="form-group form-control-lg col-md-6">
+                        {{ form_label(registrationForm.firstname) }}
+                        {{ form_widget(registrationForm.firstname, { 'attr': {'class': 'form-control'} }) }}
+                        {{ form_errors(registrationForm.firstname) }}
+
+                    </div>
+                    <div class="form-group form-control-lg col-md-6">
+                        {{ form_label(registrationForm.lastname) }}
+                        {{ form_widget(registrationForm.lastname, { 'attr': {'class': 'form-control'} }) }}
+                        {{ form_errors(registrationForm.lastname) }}
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="form-group form-control-lg col-md-6">
+                        {{ form_label(registrationForm.email) }}
+                        {{ form_widget(registrationForm.email, { 'attr': {'class': 'form-control'} }) }}
+                        {{ form_errors(registrationForm.email) }}
+                    </div>
+                    <div class="form-group form-control-lg col-md-6">
+                        {{ form_label(registrationForm.plainPassword) }}
+                        {{ form_widget(registrationForm.plainPassword, { 'attr': {'class': 'form-control'} }) }}
+                        {{ form_errors(registrationForm.plainPassword) }}
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="form-group form-control-lg">
+                        {{ form_widget(registrationForm.agreeTerms, { 'attr': {'class': 'form-check-input'} }) }}
+                        {{ form_label(registrationForm.agreeTerms )}}
+                        {{ form_errors(registrationForm.agreeTerms) }}
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary btn-lg text-center">{{ button_label|default('Créer un compte') }}</button>
+                </div>
+                {{ form_row(registrationForm._token) }}
+            </form>
+        </div>
+    {{ form_errors(registrationForm) }}
+    {{ form_end(registrationForm) }}
+{% endblock %}

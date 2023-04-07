@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="text-center my-3 mt-5">
+        <h1>Vos formulaires soumis</h1>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="col-md-3">Nom de famille</th>
+            <th class="col-md-3">Prénom</th>
+            <th class="col-md-6">Question</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for completedForm in completedForms %}
+            <tr>
+                <td>{{ completedForm.lastname }}</td>
+                <td>{{ completedForm.firstname }}</td>
+                <td>{{ completedForm.question }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun formulaire</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
