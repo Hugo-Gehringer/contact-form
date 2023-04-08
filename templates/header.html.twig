@@ -12,6 +12,9 @@
                     <a class="nav-link -danger"> Bonjour {{ app.user.lastname }}</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{path('app_user',{'user':app.user.id})}}">Voir vos formulaires</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{path('app_logout')}}">Déconnexion</a>
                 </li>
             {% else %}
@@ -25,7 +28,7 @@
         </ul>
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                <a class="nav-link">Contactez-nous</a>
+                <a class="nav-link" href="{{ path('app_contactform_new') }}">Contactez-nous</a>
             </li>
         </ul>
     </div>
