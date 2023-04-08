@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez-nous{% endblock %}
+
+{% block body %}
+    {{ form_start(contactForm) }}
+    <div class="container">
+        <h1>Contactez-nous</h1>
+        <form class="">
+            <div class="row mt-3">
+                <div class="form-group form-control-lg col-md-6">
+                    {{ form_label(contactForm.firstname) }}
+                    {{ form_widget(contactForm.firstname, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(contactForm.firstname) }}
+
+                </div>
+                <div class="form-group form-control-lg col-md-6">
+                    {{ form_label(contactForm.lastname) }}
+                    {{ form_widget(contactForm.lastname, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(contactForm.lastname) }}
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="form-group form-control-lg col-md-6">
+                    {{ form_label(contactForm.email) }}
+                    {{ form_widget(contactForm.email, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(contactForm.email) }}
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="form-group form-control-lg col-md-12">
+                    {{ form_label(contactForm.question) }}
+                    {{ form_widget(contactForm.question, { 'attr': {'class': 'form-control' , 'rows' : '6'} }) }}
+                    {{ form_errors(contactForm.question) }}
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary btn-lg text-center">{{ button_label|default('Envoyer') }}</button>
+            </div>
+            {{ form_row(contactForm._token) }}
+        </form>
+    </div>
+    {{ form_errors(contactForm) }}
+    {{ form_end(contactForm) }}
+{% endblock %}
