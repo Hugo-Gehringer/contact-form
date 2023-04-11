@@ -26,6 +26,9 @@ class ContactForm
     #[ORM\Column(type: Types::TEXT)]
     private ?string $question = null;
 
+    #[ORM\Column]
+    private ?bool $isChecked = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +78,18 @@ class ContactForm
     public function setQuestion(string $question): self
     {
         $this->question = $question;
+
+        return $this;
+    }
+
+    public function isIsChecked(): ?bool
+    {
+        return $this->isChecked;
+    }
+
+    public function setIsChecked(bool $isChecked): self
+    {
+        $this->isChecked = $isChecked;
 
         return $this;
     }

@@ -9,17 +9,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Serializer\SerializerInterface;
 
 class ContactFormController extends AbstractController
 {
-    #[Route('/contact/form', name: 'app_contact_form')]
+    #[Route('/contact/form', name: 'app_contact_form'),IsGranted('ROLE_ADMIN')]
+
     public function index(ContactFormRepository $contactFormRepository): Response
     {
-        $contactForms = $contactFormRepository->findAll();
+        $contactForms = $contactFormRepository->findBy(['isChecked' => false]);
         return $this->render('contact_form/index.html.twig', [
             'controller_name' => 'ContactFormController',
             'contactForms' => $contactForms
@@ -60,5 +63,16 @@ class ContactFormController extends AbstractController
             'contactForm' => $form->createView(),
 
         ]);
+    }
+
+    #[Route('/contact/form/check', name: 'app_contactform_check', methods: ['POST'])]
+    public function checkContactForm(Request $request, ContactFormRepository $contactFormRepository): JsonResponse
+    {
+        $data = json_decode($request->getContent());
+        $contactForm = $contactFormRepository->find($data->id);
+        $stateCheck = $data->check;
+        $contactForm->setIsChecked(boolval($stateCheck));
+        $contactFormRepository->save($contactForm, true);
+        return new JsonResponse(null, 200);
     }
 }
