@@ -14,12 +14,6 @@ class ContactForm
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 40)]
-    private ?string $firstname = null;
-
-    #[ORM\Column(length: 40)]
-    private ?string $lastname = null;
-
     #[ORM\Column(length: 180)]
     private ?string $email = null;
 
@@ -29,33 +23,13 @@ class ContactForm
     #[ORM\Column]
     private ?bool $isChecked = false;
 
+    #[ORM\OneToOne(inversedBy: 'contactForm', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?ContactDetail $contactDetail = null;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getFirstname(): ?string
-    {
-        return $this->firstname;
-    }
-
-    public function setFirstname(string $firstname): self
-    {
-        $this->firstname = $firstname;
-
-        return $this;
-    }
-
-    public function getLastname(): ?string
-    {
-        return $this->lastname;
-    }
-
-    public function setLastname(string $lastname): self
-    {
-        $this->lastname = $lastname;
-
-        return $this;
     }
 
     public function getEmail(): ?string
@@ -90,6 +64,18 @@ class ContactForm
     public function setIsChecked(bool $isChecked): self
     {
         $this->isChecked = $isChecked;
+
+        return $this;
+    }
+
+    public function getContactDetail(): ?ContactDetail
+    {
+        return $this->contactDetail;
+    }
+
+    public function setContactDetail(ContactDetail $contactDetail): self
+    {
+        $this->contactDetail = $contactDetail;
 
         return $this;
     }

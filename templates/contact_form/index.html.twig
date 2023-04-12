@@ -20,8 +20,8 @@
                 <tbody>
                     {% for contactForm in contactForms %}
                         <tr>
-                            <td>{{ contactForm.lastname }}</td>
-                            <td>{{ contactForm.firstname }}</td>
+                            <td>{{ contactForm.contactDetail.lastname }}</td>
+                            <td>{{ contactForm.contactDetail.firstname }}</td>
                             <td>{{ contactForm.question }}</td>
                             <td class="text-center">
                                 <form name="checkState" method="post" action="#">

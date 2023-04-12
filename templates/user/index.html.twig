@@ -18,8 +18,8 @@
         <tbody>
         {% for completedForm in completedForms %}
             <tr>
-                <td>{{ completedForm.lastname }}</td>
-                <td>{{ completedForm.firstname }}</td>
+                <td>{{ completedForm.contactDetail.lastname }}</td>
+                <td>{{ completedForm.contactDetail.firstname }}</td>
                 <td>{{ completedForm.question }}</td>
             </tr>
         {% else %}

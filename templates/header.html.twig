@@ -7,7 +7,7 @@
                 </li>
                 {% if is_granted("IS_AUTHENTICATED_FULLY") %}
                     <li class="nav-item">
-                        <a class="nav-link -danger"> Bonjour {{ app.user.lastname }}</a>
+                        <a class="nav-link -danger"> Bonjour {{ app.user.contactDetail.lastname }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{path('app_user',{'user':app.user.id})}}">Voir vos demandes de contacts</a>

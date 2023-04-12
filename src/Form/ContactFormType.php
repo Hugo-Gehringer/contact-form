@@ -2,8 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\ContactDetail;
 use App\Entity\ContactForm;
 use App\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -17,19 +19,14 @@ class ContactFormType extends AbstractType
     {
         /** @var User $user */
         $user = $options['user'];
-
+        $contactDetail = $user?->getContactDetail();
         $builder
             ->add('email', EmailType::class, [
                 'data' => $user?->getEmail()
             ])
-            ->add('firstname', TextType::class, [
-                'label' => 'Prénom',
-                'data' => $user?->getFirstname()
-            ])
-            ->add('lastname', TextType::class, [
-                'label' => 'Nom de famille',
-                'data' => $user?->getLastname()
-
+            ->add('contactDetail', ContactDetailType::class, [
+                'firstname'=> $contactDetail?->getFirstname(),
+                'lastname'=> $contactDetail?->getLastname()
             ])
             ->add('question', TextareaType::class, [
                 'label' => 'Votre question'

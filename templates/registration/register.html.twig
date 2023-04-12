@@ -16,14 +16,14 @@
                                             <h1>Créer un compte</h1>
                                             <div class="row mt-3">
                                                 <div class="form-group form-control-lg col-md-6">
-                                                    {{ form_label(registrationForm.firstname) }}
-                                                    {{ form_widget(registrationForm.firstname, { 'attr': {'class': 'form-control'} }) }}
-                                                    {{ form_errors(registrationForm.firstname) }}
+                                                    {{ form_label(registrationForm.contactDetail.firstname) }}
+                                                    {{ form_widget(registrationForm.contactDetail.firstname, { 'attr': {'class': 'form-control'} }) }}
+                                                    {{ form_errors(registrationForm.contactDetail.firstname) }}
                                                 </div>
                                                 <div class="form-group form-control-lg col-md-6">
-                                                    {{ form_label(registrationForm.lastname) }}
-                                                    {{ form_widget(registrationForm.lastname, { 'attr': {'class': 'form-control'} }) }}
-                                                    {{ form_errors(registrationForm.lastname) }}
+                                                    {{ form_label(registrationForm.contactDetail.lastname) }}
+                                                    {{ form_widget(registrationForm.contactDetail.lastname, { 'attr': {'class': 'form-control'} }) }}
+                                                    {{ form_errors(registrationForm.contactDetail.lastname) }}
                                                 </div>
                                             </div>
                                             <div class="row mt-3">

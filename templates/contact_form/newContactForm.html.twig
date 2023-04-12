@@ -11,14 +11,14 @@
         <form>
             <div class="row mt-3">
                 <div class="form-group form-control-lg col-md-6">
-                    {{ form_label(contactForm.firstname) }}
-                    {{ form_widget(contactForm.firstname, { 'attr': {'class': 'form-control'} }) }}
-                    {{ form_errors(contactForm.firstname) }}
+                    {{ form_label(contactForm.contactDetail.firstname) }}
+                    {{ form_widget(contactForm.contactDetail.firstname, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(contactForm.contactDetail.firstname) }}
                 </div>
                 <div class="form-group form-control-lg col-md-6">
-                    {{ form_label(contactForm.lastname) }}
-                    {{ form_widget(contactForm.lastname, { 'attr': {'class': 'form-control'} }) }}
-                    {{ form_errors(contactForm.lastname) }}
+                    {{ form_label(contactForm.contactDetail.lastname) }}
+                    {{ form_widget(contactForm.contactDetail.lastname, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(contactForm.contactDetail.lastname) }}
                 </div>
             </div>
             <div class="row mt-3">
