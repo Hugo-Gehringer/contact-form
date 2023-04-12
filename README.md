@@ -1,3 +1,10 @@
+# Installation
+> composer install
+
+> yarn install
+
+> yarn watch
+
 # Contact Form
 
 Exercice technique / fonctionnel utilisé par ACSEO pour ses recrutements.
